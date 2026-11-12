@@ -1,3 +1,8 @@
+from datetime import date
 from django.shortcuts import render
-
-# Create your views here.
+def home(request):
+    context = {
+        'app_name': 'My To-Do List',
+        'today': date.today(),
+    }
+    return render(request, 'tasks/index.html', context)

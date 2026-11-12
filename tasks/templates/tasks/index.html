@@ -1,0 +1,25 @@
+{% extends "tasks/base.html" %}
+{% block title %}{{ app_name }}{% endblock %}
+{% block content %}
+<main class="card">
+  <h1>{{ app_name }}</h1>
+  <p class="date">{{ today|date:"l, j F Y" }}</p>
+  <form id="task-form" class="task-form">
+    <input type="text" id="task-input"
+           placeholder="What do you need to do?"
+           maxlength="120" autocomplete="off" required>
+    <button type="submit">Add</button>
+  </form>
+  <p id="counter" class="counter"></p>
+  <div class="filters">
+    <button type="button" class="filter-btn active" data-filter="all">All</button>
+    <button type="button" class="filter-btn" data-filter="active">Active</button>
+    <button type="button" class="filter-btn" data-filter="done">Done</button>
+  </div>
+  <ul id="task-list" class="task-list"></ul>
+  <p id="empty-message" class="empty" hidden>Nothing to show here.</p>
+    <button type="button" id="clear-done" class="clear-btn" hidden>
+    Clear finished tasks
+  </button>
+</main>
+{% endblock %}
